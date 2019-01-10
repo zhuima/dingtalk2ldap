@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery平面响应式全屏支持进度条样式焦点图</title>
+<link href="css/lanrenzhijia.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+		//var loginFlag = false;
+		//var loginHelper = null;
+		$(document).ready(function(){
+			$('.carousel').carousel(
+				{
+					"pause":"false",
+					"interval":20000
+				}
+			);
+			
+			$('.carousel').on('slide.bs.carousel', function (event) {
+				var tag = $(event.relatedTarget).attr("tag");
+				var progress = $(event.relatedTarget).attr("progress");
+				
+				$('#img_home').attr("src", "images/home.png");
+				$('#img_intro').attr("src", "images/intro.png");
+				$('#img_gift').attr("src", "images/gift.png");
+				$('#img_feedback').attr("src", "images/feedback.png");
+				$('#img_related').attr("src", "images/related.png");
+				
+				$('#img_' + tag).attr("src", "images/" + tag + "_selected.png");
+				
+				//$("#progress").width(progress + "px");
+				//$("#progress").css('left', (progress / 2) - 400 + "px");
+				$("#progress").animate({width: progress, left: (progress / 2) - 400}, 500);
+				playAnimation(tag);
+			});
+			
+			$("body,html").animate({
+               scrollTop:($("#lanrenzhijia_home .splash-container").offset().top)
+            },10);
+			
+			playAnimation("home");
+			
+		}); 
+		
+		function switchlanrenzhijia(lanrenzhijiaIndex){
+			$('.carousel').carousel(lanrenzhijiaIndex);
+		}
+		
+		function playAnimation(tag){
+			var ani1 = $("#lanrenzhijia_" + tag + " .ani_step_1");
+			var ani2 = $("#lanrenzhijia_" + tag + " .ani_step_2");
+			var ani3 = $("#lanrenzhijia_" + tag + " .ani_step_3");
+			var pre_start = ((tag == "home") ? 0 : 300);
+			if(ani1 != null){
+				ani1.css("opacity", 0);
+				setTimeout(function(){
+					ani1.animate({opacity: 1}, 1000);
+				}, 10 + pre_start);
+			}
+			if(ani2 != null){
+				ani2.css("opacity", 0);
+				setTimeout(function(){
+					ani2.animate({opacity: 1}, 1000);
+				}, 1500 + pre_start);
+			}
+			if(ani3 != null){
+				ani3.css("opacity", 0);
+				setTimeout(function(){
+					$("#lanrenzhijia_" + tag + " .ani_step_3").animate({opacity: 1}, 1000);
+				}, 3000 + pre_start);
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+<div id="carousel_container" class="carousel slide full_height">
+	<div class="carousel-inner full_height">
+		<div id="lanrenzhijia_home" class="lanrenzhijia item active" tag="home" progress="150">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container">
+						<img src="images/title.png" alt="百度微任务" class="ani_step_2"/>
+						<div id="splash_introduction" class="ani_step_2">
+							<img src="images/home_desc.png" alt="百度微任务介绍"/>						</div>
+						<div id="download_btn_group" class="container ani_step_1">
+							<div id="download_place_holder" class="horizental-item" ></div>
+							<div class="horizental-item">
+								<a href="http://www.lanrenzhijiazhijia.com/" target="_blank" id="splash_download_button" class="download-button">
+									<div class="download-title">
+										<div id="download_icon"></div><span>&nbsp;&nbsp;立即体验</span>									</div>
+									<div class="download-subtitle">
+										百度微任务V2.2.1 Android下载 12月31日更新									</div>
+								</a>							</div>
+					  <div class="horizental-item">
+								<div id="splash_download_qrcode">
+									<img class="qrcode" src="./images/qrcode.png" alt="二维码下载">
+									<div id="qrcode_hint">建议使用<a href="http://www.lanrenzhijiazhijia.com/">百度手机浏览器</a>扫描</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_intro" class="lanrenzhijia item" tag="intro" progress="300">
+			<div id="main">
+				<div id="splash" class="ani_step_1">
+					<div class="container splash-container">
+						<img src="images/intro_splash.png" alt="微任务介绍"/>					</div>
+				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_gift" class="lanrenzhijia item" tag="gift" progress="450">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container ani_step_2">
+						<img src="images/gift_splash.png" alt="精美礼品"/>					</div>
+					<div id="splash_introduction" class="ani_step_2">
+						<h2>赚礼券，换大礼！</h2>
+						<p>快来登录众测平台，赚礼券兑换丰厚实物大礼！<br>
+						iPad、小米、百度U盘，海量礼品等您拿！</p>
+					</div>
+					<a href="http://www.lanrenzhijiazhijia.com/" target="_blank" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							马上赚钱&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/arrow_gift.png" alt="访问">						</div>
+					</a>				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_feedback" class="lanrenzhijia item" tag="feedback" progress="600">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container ani_step_2">
+						<img src="images/feedback_splash.png" alt="意见反馈"/>					</div>
+					<div id="splash_introduction" class="ani_step_2">
+						<h2>人人都是产品经理！</h2>
+						<p>报BUG、提优化，请把您天马行空的创意反馈给我们；<br>
+						如新功能建议被采纳，还有惊喜奉上哦！</p>
+					</div>
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/arrow_feedback.png" alt="反馈">						</div>
+					</a>				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_related" class="lanrenzhijia item" tag="related" progress="750">
+			<div id="main">
+				<div id="splash" class="ani_step_1">
+					<div class="container splash-container">
+						<div class="horizental-item">
+							<img id="related_demo" src="images/related_demo.png" alt="演示项目"/>						</div>
+						<div class="horizental-item">
+							<div id="splash_introduction">
+								<div class="container">
+									<div class="horizental-item">
+										<img src="images/fresh_icon.png" alt="尝鲜"/>									</div>
+									<div class="horizental-item">
+										<h3>优先体验未发布功能，<br>成为百度产品设计师！</h3>
+									</div>
+								</div>
+								<p>我们将对您的以下行为以礼券结算：<br>
+									通过懒人之家尝鲜下载百度产品；<br>
+									通过百度尝鲜优先体验百度产品尝鲜版；<br>
+									对线上版和尝鲜版产品提供意见和反馈；								</p>
+								<div id="download_btn_group" class="container">
+									<div class="horizental-item">
+										<a href="http://www.lanrenzhijiazhijia.com/" target="_blank" id="splash_download_button" class="download-button">
+											<div class="download-title">
+												<div id="download_icon"></div><span>&nbsp;&nbsp;立即体验</span>											</div>
+											<div class="download-subtitle">
+												百度尝鲜V3.1.1 下载 11月20日更新											</div>
+										</a>									</div>
+							  <div class="horizental-item">
+										<div id="splash_download_qrcode">
+											<img class="qrcode" src="./images/qrcode_fresh.png" alt="二维码下载">
+											<div id="qrcode_hint">建议使用<a href="http://www.lanrenzhijiazhijia.com/">百度手机浏览器</a>扫描</div>
+										</div>
+									</div>
+								</div>
+								<p>更多精彩内容请访问&nbsp;<a target="_blank" href="http://www.lanrenzhijiazhijia.com/">懒人</a>&nbsp;&gt;</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer" >
+    <div id="navbar">
+		<div id="dash" ></div>
+		<div id="progress"></div>
+		<div id="navbtns" class="container" >
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(0)">
+					<img id="img_home" src="images/home_selected.png" alt="首页">
+					<div>首页</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(1)">
+					<img id="img_intro" src="images/intro.png" alt="微任务介绍">
+					<div>微任务介绍</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(2)">
+					<img id="img_gift" src="images/gift.png" alt="精美礼品">
+					<div>精美礼品</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(3)">
+					<img id="img_feedback" src="images/feedback.png" alt="意见反馈">
+					<div>意见反馈</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(4)">
+					<img id="img_related" src="images/related.png" alt="相关产品">
+					<div>相关产品</div>
+				</a>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+</html>

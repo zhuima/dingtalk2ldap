@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div id="carousel_container" class="carousel slide full_height">
+	<div class="carousel-inner full_height">
+		<div id="lanrenzhijia_home" class="lanrenzhijia item active" tag="home" progress="150">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container">
+						<img src="{{ url_for('static', filename='images/title.png') }}" alt="运维账号自助管理平台" class="ani_step_2"/>
+						<div id="splash_introduction" class="ani_step_2">
+							<img src="{{ url_for('static', filename='images/home_desc.png') }}" alt="运维账号自助管理平台"/>		
+						</div>
+						<div id="download_btn_group" class="container ani_step_1">
+							<div id="download_place_holder" class="horizental-item" ></div>
+							<div class="horizental-item">
+								<a href="#" target="_blank" id="splash_download_button" class="download-button">
+									<div class="download-title">
+										<div id="download_icon"></div><span>运维账号自助管理平台</span></div>
+									<div class="download-subtitle">
+										运维账号管理系统							
+									</div>
+								</a>							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_intro" class="lanrenzhijia item" tag="intro" progress="300">
+			<div id="main">
+				<div id="splash" class="ani_step_1">
+				
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							1、邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ url_for('static', filename='images/arrow_feedback.png') }}" alt="反馈">
+						</div>
+					</a> 
+					
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							2、邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ url_for('static', filename='images/arrow_feedback.png') }}" alt="反馈">
+						</div>
+					</a> 
+
+					
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							3、邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ url_for('static', filename='images/arrow_feedback.png') }}" alt="反馈">
+						</div>
+					</a> 
+
+					
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							4、邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ url_for('static', filename='images/arrow_feedback.png') }}" alt="反馈">
+						</div>
+					</a> 
+
+					
+					<a href="mailto:microtask@baidu.com" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							5、邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ url_for('static', filename='images/arrow_feedback.png') }}" alt="反馈">
+						</div>
+					</a> 
+
+				</div>
+			</div>
+		</div>
+
+
+		<div id="lanrenzhijia_gift" class="lanrenzhijia item" tag="gift" progress="450">
+			<div id="main">
+				<div id="splash">
+					<div class="splash-container ani_step_2">
+						<!-- <img src="images/gift_splash.png" alt="精美礼品"/> -->
+						
+						<div class="row h-100 justify-content-center align-items-center">
+							{{ render_form(form1, extra_classes='col-4') }}
+						</div>					
+					</div>
+	<!-- 				<div id="splash_introduction" class="ani_step_2">
+						<h2>赚礼券，换大礼！</h2>
+						<p>快来登录众测平台，赚礼券兑换丰厚实物大礼！<br>
+						iPad、小米、百度U盘，海量礼品等您拿！</p>
+					</div>
+					<a href="http://www.lanrenzhijiazhijia.com/" target="_blank" id="splash_download_button" class="download-button ani_step_1">
+						<div class="download-title">
+							马上赚钱&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/arrow_gift.png" alt="访问">	
+						</div>
+					</a> -->	
+
+				</div>
+			</div>
+<!-- 			<div class="container h-100">
+		        <div class="row h-100 page-header justify-content-center align-items-center">
+		            <h1>博客后台管理系统</h1>
+		        </div>
+
+		    </div> -->
+		</div>
+		<div id="lanrenzhijia_feedback" class="lanrenzhijia item" tag="feedback" progress="600">
+			<div id="main">
+				<div id="splash">
+					<div class="splash-container ani_step_2">
+						<img src="{{ url_for('static', filename='images/feedback_splash.png') }}" alt="账号检测"/>
+										
+					</div>
+					<div id="splash_introduction" class="ani_step_2">
+						<h2>账号检测！</h2>
+						<p>请输入邮箱来检测帐号是否存在</p>
+					</div>
+						<div class="download-title">
+							<!-- 邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/arrow_feedback.png" alt="反馈"> -->
+							<div class="row h-100 justify-content-center align-items-center">
+								{{ render_form(form2, extra_classes='col-4') }}
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div id="lanrenzhijia_related" class="lanrenzhijia item" tag="related" progress="600">
+			<div id="main">
+				<div id="splash">
+					<div class="container  splash-container ani_step_2">
+						<img src="{{ url_for('static', filename='images/feedback_splash.png') }}" alt="找回密码"/>
+					</div>
+					<div id="splash_introduction" class="ani_step_2">
+						<h2>找回密码！</h2>
+						<p>请输入邮箱来找回密码</p>
+					</div>
+						<div class="download-title">
+							<!-- 邮件反馈&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/arrow_feedback.png" alt="反馈"> -->
+							<div class="row h-100 justify-content-center align-items-center">
+								{{ render_form(form3, extra_classes='col-4') }}
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+<div class="footer" >
+    <div id="navbar">
+		<div id="dash" ></div>
+		<div id="progress"></div>
+		<div id="navbtns" class="container" >
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(0)">
+					<img id="img_home" src="{{ url_for('static', filename='images/home_selected.png') }}" alt="关于我们">
+					<div>关于我们</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(1)">
+					<img id="img_intro" src="{{ url_for('static', filename='images/intro.png') }}" alt="可登陆的系统">
+					<div>可登陆的系统</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(2)">
+					<img id="img_gift" src="{{ url_for('static', filename='images/gift.png') }}" alt="注册账号">
+					<div>注册账号</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(3)">
+					<img id="img_feedback" src="{{ url_for('static', filename='images/feedback.png') }}" alt="查询账号">
+					<div>查询账号</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(4)">
+					<img id="img_related" src="{{ url_for('static', filename='images/related.png') }}" alt="找回密码">
+					<div>找回密码</div>
+				</a>
+			</div>
+		</div>
+    </div>
+</div>
+{% endblock footer %}
