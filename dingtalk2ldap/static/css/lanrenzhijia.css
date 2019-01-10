@@ -64,6 +64,12 @@ body {
 	text-align: center;
 	position: relative;
 }
+.splash-container1 {
+	top:120px;
+	text-align: left;
+	position: relative;
+}
+
 .qrcode {
 	margin-top: 5px;
 	height: 90px;
