@@ -4,12 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+faker = "*"
+watchdog = "*"
 
 [packages]
 flask = "*"
 python-dotenv = "*"
 bootstrap-flask = "*"
 flask-wtf = "*"
+flask-login = "*"
+flask-mail = "*"
+flask-migrate = "*"
 
 [requires]
 python_version = "3.7"

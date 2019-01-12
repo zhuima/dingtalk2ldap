@@ -8,11 +8,11 @@ from wtforms import StringField, SubmitField, SelectField, TextAreaField, Valida
 from wtforms.validators import DataRequired, Email, Length, Optional, URL, EqualTo, Regexp
 
 
-# class LoginForm(FlaskForm):
-#     username = StringField('Username', validators=[DataRequired(), Length(1, 20)])
-#     password = PasswordField('Password', validators=[DataRequired(), Length(1, 128)])
-#     remember = BooleanField('Remember me')
-#     submit = SubmitField('Log in')
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(1, 20)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(1, 128)])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('Log in')
 
 
 class RegisterForm(FlaskForm):
