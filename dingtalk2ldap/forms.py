@@ -6,6 +6,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, TextAreaField, ValidationError, HiddenField, BooleanField, PasswordField
 from wtforms.validators import DataRequired, Email, Length, Optional, URL, EqualTo, Regexp
+from dingtalk2ldap.models import Admin
 
 
 class LoginForm(FlaskForm):
@@ -25,6 +26,14 @@ class RegisterForm(FlaskForm):
         DataRequired(), Length(8, 128), EqualTo('password2')])
     password2 = PasswordField('Confirm password', validators=[DataRequired()])
     submit1 = SubmitField()
+
+    def validate_email(self, field):
+        if Admin.query.filter_by(email=field.data).first():
+            raise ValidationError('Email is already in use.')
+
+    def validate_username(self, field):
+        if Admin.query.filter_by(username=field.data).first():
+            raise ValidationError('Username is already in use.')
 
 
 class CheckForm(FlaskForm):

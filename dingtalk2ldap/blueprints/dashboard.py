@@ -44,6 +44,13 @@ def dashboard():
 	return render_template('dashboard/home.html')
 
 
+@dashboard_bp.route('/userlist', methods=['GET', 'POST'])
+@login_required
+def userlist():
+	return render_template('dashboard/userlist.html')
+
+
+
 @dashboard_bp.route('/logout')
 @login_required
 def logout():
