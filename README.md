@@ -24,6 +24,7 @@ $ pipenv run flask run
 
 ### 二、关于项目
 
+- 后台管理使用: https://github.com/pratikborsadiya/vali-admin
 - 为了减轻运维手动操作，此乃自助注册平台，通过企业邮箱实现
 - 自助，自助，自助
 
