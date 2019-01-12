@@ -23,6 +23,14 @@ class BaseConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True
 
+    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = ('Dingtalk2Ldap Admin', MAIL_USERNAME)
+
+
     WTF_CSRF_SECRET_KEY = 'random key for form'
     LDAP_PROVIDER_URL = os.getenv('LDAP_PROVIDER_URL', 'ldap://bogon.zy.cn:6389')
     LDAP_PROTOCOL_VERSION = 3
