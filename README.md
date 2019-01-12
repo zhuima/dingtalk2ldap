@@ -14,10 +14,14 @@ dingtalk2ldap
 ```python
 $ git clone https://github.com/zhuima/dingtalk2ldap.git
 $ cd dingtalk2ldap
-$ pipenv install --dev
 $ pipenv shell
+$ pipenv install --dev
+$ pipenv run flask forge
 $ pipenv run flask run
 * Running on http://127.0.0.1:5000/
+* Running on http://127.0.0.1:5000/login
+* account: admin password: zhuima321
+
 ```
 
 
@@ -58,6 +62,8 @@ $ pipenv run flask run
 
 ### 五、TODO
 
-- [ ] dingding
-- [ ] 权限管理
+- [x] 权限管理
+- [x] dingding
+- [x] FreeIPA
 - [ ] 后台优化扩展
+- [ ] 和FreeIPA联测，环境局限未进行
