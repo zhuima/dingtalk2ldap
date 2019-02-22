@@ -32,7 +32,7 @@ class BaseConfig(object):
 
 
     WTF_CSRF_SECRET_KEY = 'random key for form'
-    LDAP_PROVIDER_URL = os.getenv('LDAP_PROVIDER_URL', 'ldap://bogon.zy.cn:6389')
+    LDAP_PROVIDER_URL = os.getenv('LDAP_PROVIDER_URL', 'ldap://xxx.xxx.xx:6389')
     LDAP_PROTOCOL_VERSION = 3
 
 
